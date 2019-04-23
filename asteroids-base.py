@@ -27,7 +27,7 @@ pygame.mixer.init()
 # Tamanho da tela.
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-# Nome do jogo
+# Nome do jogo (Nome que aparece na barra superior da janela)
 pygame.display.set_caption("Asteroids")
 
 # Variável para o ajuste de velocidade
@@ -63,3 +63,38 @@ try:
         
 finally:
     pygame.quit()
+    
+# Classe Jogador que representa a nave
+class Player(pygame.sprite.Sprite):
+    
+    # Construtor da classe
+    def __init__(self):
+        
+        # Contrutor da classe pai (sprite)
+        pygame.sptite.Sprite._init_(self)
+        
+        # Carregando a imagem de fundo
+        player_img = pygame.image.load(path.join(img_dir, "playerShip1_orange.png")).convert()
+        self.image = player_img
+        
+        # Diminuindo o tamnho da imgaem
+        self.image = pygame.tranform.scale(player_img,(50,38))
+        
+        # Deixando transparente
+        self.image.set_colorkey(BLACK)
+        
+        # Detalhes sobre o posicionamento
+        self.rect = self.image.get_rect()
+        
+        # Centraliza embaixo da tela
+        self.rect.centernx = WIDTH / 2
+        self.rect.bottom = HEIGHT - 10
+        
+        # Desenhar a nave
+        screen.dill(BLACK)
+        screen.blit(background,background_rect)
+        all_splites.draw(screen)
+        
+        # Inverter o display
+        pygame.display.flip()
+        
