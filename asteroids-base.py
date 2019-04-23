@@ -30,6 +30,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 # Nome do jogo
 pygame.display.set_caption("Asteroids")
 
+# Variável para o ajuste de velocidade
+clock = pygame.time.Clock()
+
 # Carrega o fundo do jogo
 background = pygame.image.load(path.join(img_dir, 'starfield.png')).convert()
 background_rect = background.get_rect()
@@ -40,6 +43,9 @@ try:
     # Loop principal.
     running = True
     while running:
+        
+        # Ajusta a velocidade do jogo.
+        clock.tick(FPS)
         
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
