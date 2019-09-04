@@ -1,4 +1,4 @@
-# Aula 16 de Des Soft 
+# Asteroids 
 --------------------------------------------------
 
-Criação de um jogo chamado Asteroids
+Criação de um jogo em Python
